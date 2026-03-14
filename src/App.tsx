@@ -4,6 +4,7 @@ import { Features } from './sections/Features';
 import { About } from './sections/About';
 import { Products } from './sections/Products';
 import { Projects } from './sections/Projects';
+import { CalculatorSection } from './sections/Calculator';
 import { Stats } from './sections/Stats';
 import { FAQ } from './sections/FAQ';
 import { CTA } from './sections/CTA';
@@ -19,6 +20,7 @@ function App() {
         <About />
         <Products />
         <Projects />
+        <CalculatorSection />
         <Stats />
         <FAQ />
         <CTA />
