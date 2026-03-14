@@ -10,6 +10,7 @@ const navLinks = [
   { name: 'Kurumsal', href: '#about' },
   { name: 'Ürünler', href: '#products' },
   { name: 'Projeler', href: '#projects' },
+  { name: 'Hesaplama', href: '#calculator' },
   { name: 'İletişim', href: '#contact' },
 ];
 
