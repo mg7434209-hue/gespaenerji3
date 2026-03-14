@@ -1,28 +1,31 @@
 import { motion } from 'framer-motion';
-import { MapPin, Zap, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 
 const projects = [
   {
-    image: '/images/projects/project-1.jpg',
-    title: 'Royal Garden Resort',
-    location: 'Manavgat, Antalya',
-    capacity: '250 kW',
-    type: 'Otel',
+    image: '/images/projects/project-real-1.jpg',
+    alt: 'GESPA Solar Panel Kurulumu',
   },
   {
-    image: '/images/projects/project-2.jpg',
-    title: 'Sunset Villa',
-    location: 'Alanya, Antalya',
-    capacity: '25 kW',
-    type: 'Villa',
+    image: '/images/projects/project-real-2.jpg',
+    alt: 'GESPA Solar Panel Kurulumu',
   },
   {
-    image: '/images/projects/project-3.jpg',
-    title: 'Green Valley Tarım',
-    location: 'Serik, Antalya',
-    capacity: '150 kW',
-    type: 'Tarım',
+    image: '/images/projects/project-real-3.jpg',
+    alt: 'GESPA Solar Panel Kurulumu',
+  },
+  {
+    image: '/images/projects/project-real-4.jpg',
+    alt: 'GESPA Solar Panel Kurulumu',
+  },
+  {
+    image: '/images/projects/project-real-5.jpg',
+    alt: 'GESPA Solar Panel Kurulumu',
+  },
+  {
+    image: '/images/projects/project-real-6.jpg',
+    alt: 'GESPA Solar Panel Kurulumu',
   },
 ];
 
@@ -81,45 +84,19 @@ export function Projects() {
         >
           {projects.map((project, index) => (
             <motion.div key={index} variants={itemVariants}>
-              <Card className="group overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500">
+              <Card className="group overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 cursor-pointer">
                 <div className="relative overflow-hidden">
                   <img
                     src={project.image}
-                    alt={project.title}
+                    alt={project.alt}
                     className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                  {/* Subtle Overlay on Hover */}
+                  <div className="absolute inset-0 bg-brand-green/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   
-                  {/* Content */}
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4 }}
-                    >
-                      <span className="inline-block px-3 py-1 bg-brand-orange text-white text-xs font-semibold rounded-full mb-2">
-                        {project.type}
-                      </span>
-                      <h3 className="text-xl font-bold text-white font-['Poppins'] mb-2 group-hover:text-brand-orange transition-colors">
-                        {project.title}
-                      </h3>
-                      <div className="flex items-center gap-4 text-white/80 text-sm">
-                        <span className="flex items-center gap-1">
-                          <MapPin className="w-4 h-4" />
-                          {project.location}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <Zap className="w-4 h-4" />
-                          {project.capacity}
-                        </span>
-                      </div>
-                    </motion.div>
-                  </div>
-
-                  {/* Arrow Icon */}
-                  <div className="absolute top-4 right-4 w-10 h-10 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:bg-brand-orange">
-                    <ArrowUpRight className="w-5 h-5 text-white" />
+                  {/* Arrow Icon on Hover */}
+                  <div className="absolute top-4 right-4 w-10 h-10 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
+                    <ArrowUpRight className="w-5 h-5 text-brand-green" />
                   </div>
                 </div>
               </Card>
