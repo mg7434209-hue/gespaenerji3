@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, CheckCircle, Calculator } from 'lucide-react';
+import { ArrowRight, CheckCircle, Calculator, Phone } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -32,6 +32,12 @@ const stats = [
 ];
 
 export function Hero() {
+  const sendWhatsApp = () => {
+    const phone = '905437434209';
+    const message = encodeURIComponent('Merhaba, GESPA web sitenizden ulaşıyorum. Ücretsiz keşif talebi için bilgi almak istiyorum.');
+    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+  };
+
   return (
     <section
       id="hero"
@@ -126,19 +132,23 @@ export function Hero() {
             >
               <Button
                 size="lg"
+                onClick={sendWhatsApp}
                 className="bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold px-8 py-6 rounded-lg transition-all hover:scale-105 group"
               >
+                <Phone className="w-5 h-5 mr-2" />
                 Ücretsiz Keşif Talebi
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-brand-green text-brand-green hover:bg-brand-green hover:text-white font-semibold px-8 py-6 rounded-lg transition-all"
-              >
-                <Calculator className="w-5 h-5 mr-2" />
-                Hemen Hesapla
-              </Button>
+              <a href="#calculator">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-2 border-brand-green text-brand-green hover:bg-brand-green hover:text-white font-semibold px-8 py-6 rounded-lg transition-all w-full sm:w-auto"
+                >
+                  <Calculator className="w-5 h-5 mr-2" />
+                  Hemen Hesapla
+                </Button>
+              </a>
             </motion.div>
 
             {/* Stats */}
