@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, Sun, Phone } from 'lucide-react';
+import { Menu, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useScrollPosition } from '@/hooks/useScrollPosition';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
@@ -18,6 +18,12 @@ export function Header() {
   const { isScrolled } = useScrollPosition();
   const [isOpen, setIsOpen] = useState(false);
 
+  const sendWhatsApp = () => {
+    const phone = '905437434209';
+    const message = encodeURIComponent('Merhaba, GESPA web sitenizden ulaşıyorum. Bilgi almak istiyorum.');
+    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+  };
+
   return (
     <motion.header
       initial={{ y: -100, opacity: 0 }}
@@ -32,17 +38,12 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#hero" className="flex items-center gap-2 group">
-            <div className={`p-2 rounded-lg transition-colors ${
-              isScrolled ? 'bg-brand-green' : 'bg-brand-green'
-            }`}>
-              <Sun className="w-6 h-6 text-white" />
-            </div>
-            <span className={`text-xl font-bold font-['Poppins'] transition-colors ${
-              isScrolled ? 'text-brand-green' : 'text-brand-green'
-            }`}>
-              GESPA
-            </span>
+          <a href="#hero" className="flex items-center group">
+            <img 
+              src="/images/gespa-logo.jpg" 
+              alt="GESPA Güneş Enerji Sistemleri" 
+              className="h-14 w-auto object-contain"
+            />
           </a>
 
           {/* Desktop Navigation */}
@@ -70,6 +71,7 @@ export function Header() {
               <span>0543 743 42 09</span>
             </a>
             <Button
+              onClick={sendWhatsApp}
               className="bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold px-6 py-2 rounded-lg transition-all hover:scale-105"
             >
               Ücretsiz Teklif Al
@@ -85,13 +87,12 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] bg-white">
               <div className="flex flex-col gap-8 mt-8">
-                <div className="flex items-center gap-2">
-                  <div className="p-2 rounded-lg bg-brand-green">
-                    <Sun className="w-6 h-6 text-white" />
-                  </div>
-                  <span className="text-xl font-bold text-brand-green font-['Poppins']">
-                    GESPA
-                  </span>
+                <div className="flex items-center">
+                  <img 
+                    src="/images/gespa-logo.jpg" 
+                    alt="GESPA Güneş Enerji Sistemleri" 
+                    className="h-10 w-auto object-contain"
+                  />
                 </div>
                 <nav className="flex flex-col gap-4">
                   {navLinks.map((link) => (
@@ -114,6 +115,7 @@ export function Header() {
                     <span>0543 743 42 09</span>
                   </a>
                   <Button
+                    onClick={sendWhatsApp}
                     className="bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold w-full"
                   >
                     Ücretsiz Teklif Al
